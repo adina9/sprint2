@@ -1,0 +1,394 @@
+.meme-editor {
+    margin: 1rem auto;
+    width: 90vw;
+    height: 80vh;
+    border-radius: 0.7rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 10rem;
+}
+
+.control-box {
+    grid-column: -1/-2;
+    background-color: rgb(114, 110, 106);
+    border-radius: inherit;
+    box-shadow: 0 0 20px black;
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.canvas-container {
+    grid-column: 1/2;
+    margin: 3rem;
+    width: 100%;
+    height: 70vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 3fr 1fr 1fr;
+}
+
+canvas {
+    border-radius: 1rem;
+    box-shadow: 0 0 20px black;
+    height: 100%;
+    width: 100%;
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    cursor: pointer;
+}
+
+.modal {
+    border: 1px solid #888888;
+    width: 20rem;
+    height: 3rem;
+    z-index: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px 0px rgb(197, 184, 168);
+    justify-content: center;
+}
+
+.modalTextTop {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    padding: 1rem 1rem 2.5rem;
+}
+
+.modalTextBottom {
+    grid-column: 3/4;
+    grid-row: -2/-1;
+}
+
+input[name="text"] {
+    background-color: white;
+    margin: 1rem;
+    border: 3px solid black;
+    color: black;
+}
+
+.texting {
+    display: flex;
+    align-items: center;
+}
+
+.text-btns {
+    display: flex;
+    flex-direction: row;
+    height: 3rem;
+    justify-content: center;
+}
+
+.lineNo {
+    display: flex;
+    background-color: white;
+    width: 2rem;
+    height: 2rem;
+    font-weight: bold;
+    text-align: right;
+    font-size: large;
+    padding: 0.4rem 0.7rem;
+    box-shadow: 2px 1px 2px 1px black;
+}
+
+.btn {
+    border-radius: 3px;
+    flex-grow: 1;
+    margin: 0 0.5rem;
+    box-shadow: 0 0 7px 0px black;
+    width: 3rem;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    width: 3.3rem;
+    height: 104%;
+    box-shadow: 0 0 14px black;
+}
+
+.upDown {
+    background-color: #ffad3b;
+    margin: 0;
+    width: 1.5rem;
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
+    padding-right: 5px;
+    padding: 0;
+}
+
+.upDown:hover {
+    width: 1.5rem;
+}
+
+.switchLine-btn {
+    background-color: darkcyan;
+}
+
+.plus-btn {
+    background-color: limegreen;
+}
+
+.garbage {
+    background-color: firebrick;
+}
+
+.text-changes {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 2rem;
+    margin: 1.2rem 2rem;
+    background-color: cadetblue;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 8px black;
+}
+
+.font-btn {
+    border-radius: 3px;
+    margin: 0 0.5rem;
+    box-shadow: 0 0 7px 0px black;
+    width: 3rem;
+    padding: 8px;
+    cursor: pointer;
+    background-color: white;
+    transition: 0.1s;
+}
+
+.font-btn:hover {
+    box-shadow: 0px 0px 8px 4px black;
+}
+
+.modalColor {
+    display: none;
+    width: 4rem;
+    grid-column: -2/-1;
+    grid-row: 2/3;
+    cursor: pointer;
+}
+
+.modalColor button {
+    height: 71%;
+    box-shadow: 0 0 5px black;
+    background-color: aliceblue;
+}
+
+.modalColorStroke {
+    display: none;
+    width: 4rem;
+    grid-column: -2/-1;
+    grid-row: 2/3;
+    cursor: pointer;
+}
+
+.modalColorStroke button {
+    height: 71%;
+    box-shadow: 0 0 5px black;
+    background-color: aliceblue;
+}
+
+.imp-btn {
+    display: flex;
+    flex-direction: row;
+    height: 3rem;
+    justify-content: center;
+}
+
+.imp {
+    box-shadow: 1px 3px 0px 0px black;
+    padding: 16px;
+    height: 3.5rem;
+    cursor: pointer;
+    transition: 0.1s;
+    border-radius: inherit;
+    font-weight: bold;
+    font-size: larger;
+    margin: 0 10px;
+    transition: 0.1s;
+    color: white;
+}
+
+.imp:hover {
+    height: 9vh;
+}
+
+.imp:focus {
+    outline: none;
+}
+
+.modalColor {
+    grid-column: 3/4;
+}
+
+.modalColorStroke {
+    grid-column: 3/4;
+}
+
+.share {
+    background-color: rgb(85, 85, 199);
+}
+
+form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid #000;
+    margin: 10px;
+    padding: 5px;
+}
+
+.download {
+    background-color: blueviolet;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.save {
+    background-color: brown;
+}
+
+.memes-section {
+    display: none;
+    margin: 1rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 0.8rem;
+}
+
+select {
+    grid-column: 1/4;
+    grid-row: 2/3;
+    border-radius: 0.4rem;
+    padding-left: 0.5rem;
+    font-weight: 900;
+    font-size: larger;
+    box-shadow: 1px 1px 4px 0px black;
+    cursor: pointer;
+    width: 7rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.impojies {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+    padding: 0 2rem
+}
+
+.imo {
+    margin: auto;
+    font-size: 3rem;
+    padding-bottom: 2rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.imo:hover {
+    text-shadow: 0 0 20px black;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.file-input {
+    width: 6rem;
+    padding: 0;
+    box-shadow: 0 0 8px 1px black;
+    color: black;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 500px) {
+    .meme-editor {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 0;
+        width: 10%;
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+    }
+    .control-box {
+        width: 24rem;
+        margin: 0.5rem;
+        grid-column: 1/-1;
+        grid-row: -2/-1;
+    }
+    select {
+        grid-column: 1/4;
+        grid-row: -2/-1;
+    }
+    .canvas-container {
+        width: 95%;
+        height: 50vh;
+        grid-column: 1/-1;
+        grid-row: 1/2;
+        margin: 0.5rem;
+    }
+    .text-changes {
+        grid-gap: 0;
+        width: 89%;
+    }
+    .imp-btn {
+        width: 40%;
+    }
+    .imp {
+        padding-top: 0;
+        height: 5.5vh;
+        font-size: 14px;
+    }
+    .imp:hover {
+        height: 3rem;
+    }
+    .font-btn {
+        width: 2rem;
+    }
+    .imo {
+        font-size: 2rem;
+    }
+    .file-input {
+        grid-column: 2/3;
+        grid-row: -2/-1;
+        display: none;
+    }
+}

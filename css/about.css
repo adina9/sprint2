@@ -1,0 +1,11 @@
+.about {
+    display: none;
+    background-color: #d0d632bf;
+    margin: 8rem;
+    padding: 5rem 2rem 5rem 7rem;
+    box-shadow: 0 0 20px 5px black;
+}
+
+pre {
+    font-family: cursive;
+}

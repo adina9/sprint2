@@ -1,0 +1,265 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(36, 32, 32);
+}
+
+.main-container {
+    width: 95%;
+    display: flex;
+    margin: auto;
+}
+
+nav {
+    width: 100vw;
+    background-color: rgb(214 173 68);
+    box-shadow: inset 0px 0px 4px 0px black;
+    display: grid;
+    grid-template-columns: 7fr 3.5fr;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    align-items: center;
+    grid-gap: 15px;
+}
+
+nav img {
+    width: 7rem;
+    margin-left: 1rem;
+}
+
+section {
+    float: right;
+}
+
+.section-item button {
+    padding: 0.7rem;
+    border-radius: 0.7rem;
+    border: none;
+    box-shadow: 2px -1px 4px black;
+    background-color: rgb(79 75 67);
+    color: white;
+    font-weight: bold;
+    margin-left: 0.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.section-item button:hover {
+    background-color: white;
+    color: black;
+}
+
+.section-item button:focus {
+    outline: none;
+}
+
+
+/* ITEMS */
+
+.section-item {
+    grid-column: -2/-1;
+}
+
+.gallery-btn {
+    grid-column: 2/3;
+}
+
+.about-btn {
+    grid-column: 3/4;
+}
+
+.main-gallery {
+    width: 100%;
+    height: 100vh;
+    border-radius: 1rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-top {
+    width: 95%;
+    height: 6rem;
+    margin: 1rem auto;
+    background-color: rgb(68, 67, 66);
+    display: flex;
+}
+
+input {
+    background-color: rgb(39 38 36 / 70%);
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    border-style: solid;
+    padding: 1rem 1.3rem;
+    width: 20rem;
+    border-radius: inherit;
+    grid-area: input;
+    grid-column: 1/2;
+}
+
+input:focus {
+    outline: none;
+}
+
+.search-icon {
+    width: 4rem;
+    grid-area: search;
+    grid-column: -2/-1;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 1rem;
+    transition: 0.15s;
+}
+
+.search-icon:hover {
+    background-color: #e8b457;
+    box-shadow: 0 0 18px 0px black
+}
+
+.search-words {
+    font-family: system-ui;
+    color: white;
+    margin-left: 2rem;
+}
+
+.search-words span {
+    display: flex;
+}
+
+p {
+    cursor: pointer;
+    font-size: 20px;
+    align-items: flex-start;
+}
+
+p:hover {
+    color: black;
+}
+
+.clean-list {
+    list-style-type: none;
+}
+
+.images {
+    width: 95%;
+    height: 140vh;
+    margin: -0.5rem auto;
+    display: grid;
+    padding: 0.5rem;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 0.8rem;
+}
+
+.img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: 0.2s;
+    box-shadow: 0 0 10px #030303;
+    cursor: pointer;
+    border-radius: 1rem;
+}
+
+.img:hover {
+    width: 103%;
+    height: 103%;
+}
+
+.img-1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+select:focus {
+    outline: none;
+}
+
+@media (max-width: 500px) {
+    nav {
+        width: 100%;
+        background-color: rgba(226, 171, 69, 0.822);
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: repeat(3, 1fr);
+        border-radius: 1.5rem;
+        padding: 1rem;
+        padding-top: 10px;
+        grid-gap: 7px;
+    }
+    nav img {
+        width: 7rem;
+        margin-left: 1rem;
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    .search-icon {
+        margin-left: -17px;
+    }
+    .section-item {
+        grid-column: 1/-1;
+        grid-row: 2/3;
+        display: flex;
+        justify-content: space-around;
+        margin-left: 0;
+    }
+    .section-item button {
+        border-radius: 0.7rem;
+        border: none;
+        box-shadow: 0 0 4px black;
+        background-color: rgb(70, 68, 64);
+        color: white;
+        font-weight: bold;
+        margin-left: 0.5rem;
+        cursor: pointer;
+        transition: 0.3s;
+        height: 2rem;
+        padding: 0 0.9rem
+    }
+    .sec {
+        height: 30px;
+    }
+    nav img {
+        width: 5rem;
+    }
+    .main-container {
+        width: 95%;
+        height: 15vh;
+    }
+    .main-lauout {
+        width: 100%;
+    }
+    .images {
+        width: 100%;
+        height: 100vh;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+    }
+    .img {
+        height: 23.5vh;
+    }
+    .main-gallery {
+        width: 100%;
+        height: 100%;
+    }
+    input {
+        background-color: rgb(39 38 36 / 70%);
+        color: white;
+        font-size: large;
+        font-weight: bold;
+        border-style: solid;
+        padding: 1rem 1.3rem;
+        width: 10rem;
+        border-radius: inherit;
+        height: 4vh;
+    }
+    .gallery-top {
+        height: 9vh;
+    }
+    .search-words {
+        display: none;
+    }
+}

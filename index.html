@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/editor.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>meme-generator</title>
+</head>
+
+<body onload="onInit()">
+    <div main-lauout>
+        <div class="main-container">
+            <nav class="nav-bar">
+                <img src="images/LOGO.png" alt="" class="img-item">
+
+                <section class="section-item">
+                    <button data-trans="gallery" class="sec gallery-btn" onclick="goToGallery()">Gallery</button>
+                    <button data-trans="editor" class="sec edit-btn" onclick="goToCanvas()">Editor</button>
+                    <button data-trans="my-memes" class="sec save-memes" onclick="saveMeme()">My Memes</button>
+                    <button data-trans="about" class="about-btn" onclick="openAboutModal()">About</button>
+                </section>
+
+                <select onchange="onSetLang(this.value)">
+                    <option value="en">English</option>
+                    <option value="he">עברית</option>
+                </select>
+
+            </nav>
+        </div>
+        <div class="main-area">
+            <div class="main-gallery">
+                <nav class="gallery-top">
+
+                    <input data-trans="search" type="text" name="name" placeholder="search" required />
+                    <img src="./images/ICONS/search-icon.png" alt="" class="search-icon" onclick="onSearchImgs()">
+                    <div class="clean-list search-words"><span></span>
+                </nav>
+                <div class="images"></div>
+            </div>
+            <div class="meme-editor">
+                <section class="canvas-container">
+                    <canvas id="my-canvas" height="450" width="450" onmousedown="onCanvasMouseDown(event)"
+                        onmousemove="onCanvasMouseMove(event)" onmouseup="onCanvasMouseUp(event)"
+                        ontouchmove="onTouchMove(event)" ontouchend="onTouchEnd(event)"></canvas>
+                </section>
+
+                <section class="control-box">
+                    <div class="texting">
+                        <!-- <div class="lineNo"></div> -->
+                        <input type="text" name="text" placeholder="Type" data-trans="text"
+                            oninput="renderTxt(this.value)" />
+                    </div>
+                    <div class="text-btns">
+                        <button class="btn upDown up" onclick="up()"> ⬆ </button>
+                        <button class="btn upDown down" onclick="down()"> ⬇ </button>
+                        <img src="./images/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""
+                            class="btn switchLine-btn" onclick="switchLine()">
+                        <img src="./images/ICONS/add.png" alt="" class="btn plus-btn" onclick="plus()">
+                        <img src="./images/ICONS/trash.png" alt="" class="btn garbage" onclick="deleteText()">
+
+                    </div>
+                    <div class="text-changes">
+                        <img src="./images/ICONS/increase-font-icon.png" class="font-btn increase-font"
+                            onclick="increase()" alt="">
+                        <img src="./images/ICONS/decrease-font-icon.png" class="font-btn decrease-font"
+                            onclick="decrease()" alt="">
+                        <img src="./images/ICONS/align-to-left.png" class="font-btn align-left" onclick="alignLeft()"
+                            alt="">
+                        <img src="./images/ICONS/center-text-alignment.png" class="font-btn align-center"
+                            onclick="alignCenter()" alt="">
+                        <img src="./images/ICONS/align-to-right.png" class="font-btn align-right" onclick="alignRight()"
+                            alt="">
+                        <select onchange="selectFont(this.value)">
+                            <option data-trans="impact" value="fantasy">IMPACT</option>
+                            <option data-trans="cursive" value="cursive">CURSIVE</option>
+                            <option data-trans="auto" value="auto">AUTO</option>
+                        </select>
+
+                        <button class="font-btn stroke" onclick="brushStroke()">S</button>
+                        <div class="modalColorStroke">
+                            <input type="color" value="#6b6a6a" name="colorStroke">
+                            <button class="submitColorStroke" onclick="submitColorStroke()">✔</button>
+                        </div>
+                        <div class="modalColor">
+                            <input type="color" value="#6b6a6a" name="colorFill">
+                            <button class="submitColor" onclick="submitColor()">✔</button>
+                        </div>
+                        <img src="./images/ICONS/paint-board-and-brush.png" class="font-btn brush" onclick="brush()"
+                            alt="">
+                    </div>
+                    <section class="impojies">
+                        <div class="imo" title="type something more" onclick="clickImo(this.innerText)">😆</div>
+                        <div class="imo" title="type something more" onclick="clickImo(this.innerText)">😎</div>
+                        <div class="imo" title="type something more" onclick="clickImo(this.innerText)">😍</div>
+                        <div class="imo" title="type something more" onclick="clickImo(this.innerText)">😁</div>
+                        <div class="imo" title="type something more" onclick="clickImo(this.innerText)">😀</div>
+                        <div class="imo" title="type something more" onclick="clickImo(this.innerText)">😊</div>
+                        <div class="imo" title="type something more" onclick="clickImo(this.innerText)">🤯</div>
+                    </section>
+                    <div class="imp-btn">
+                        <!-- <form action="" method="POST" enctype="multipart/form-data" onsubmit="shareOn(this, event)">
+                                <input name="img" id="imgData" type="hidden" />
+                                <button class="btn" type="submit">Publish</button></form> -->
+                        <button data-trans="share" class="imp share" onclick="shareOn()">🔓 Share</button>
+                        <a href="#" data-trans="download" onclick="downloadCanvas(this)" download=""
+                            class="imp download">📥 Download</a>
+                        <button data-trans="save" class="imp save" onclick="saveMeme()">📌 Save</button>
+                        <input class="file-input" type="file" name="image" onchange="onImgInput(event)">
+
+                    </div>
+                </section>
+            </div>
+            <div class="memes-section">
+                <div class="main-gallery"></div>
+
+            </div>
+        </div>
+        <div class="about">
+            <pre>
+                        hello!
+    
+    
+                            nice to know you like this app
+                            
+                                            Enjoy!
+                        </pre>
+        </div>
+    </div>
+    <script src="js/utils.js"></script>
+    <script src=" js/storage-service.js"></script>
+    <script src="js/i18n-service.js"></script>
+    <script src="js/gallery-service.js"></script>
+    <script src="js/mouse.js"></script>
+    <script src="js/gallery-controller.js"></script>
+</body>
+
+</html>
